@@ -1,6 +1,7 @@
 package com.example.entrylog;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -41,6 +42,10 @@ public class LogEntry extends AppCompatActivity {
         logoubtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferance=getSharedPreferences("login",MODE_PRIVATE);
+                SharedPreferences.Editor editor= preferance.edit();
+                editor.clear();
+                editor.apply();
                 Intent in=new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(in);
             }
